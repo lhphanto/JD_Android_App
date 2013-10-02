@@ -20,12 +20,32 @@ android:layout_height="fill_parent"
 android:orientation="vertical"
 
 >
-
- </LinearLayout>
-	<!--  <com.google.android.maps.MapView
-	      android:id="@+id/gg_map"
+	<LinearLayout
+		android:layout_width="fill_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal"
+	>
+		<AutoCompleteTextView
+		    android:id="@+id/position"
+		    android:hint="@string/enter_pos"
+		    android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+		    >	    
+		</AutoCompleteTextView>
+		<Button
+	    	android:id="@+id/enter"
+	    	android:layout_height="wrap_content"
+	    	android:layout_width="wrap_content"
+	     	android:text="@string/go"
+	     	android:layout_weight="1"
+	     	android:onClick="onClickEnterPos" />
+	</LinearLayout>
+	<com.google.android.gms.maps.MapView 
+	    xmlns:android="http://schemas.android.com/apk/res/android"
+	    android:id="@+id/gg_map"
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:apiKey="AIzaSyBICNHNDCW3HxU2uN93xRtvNFaHNNvwt48" />
-
- 	-->
+        android:layout_height="fill_parent">    
+    </com.google.android.gms.maps.MapView> 	
+ </LinearLayout>
+	

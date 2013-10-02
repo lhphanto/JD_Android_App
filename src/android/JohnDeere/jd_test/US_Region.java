@@ -22,12 +22,12 @@ public class US_Region {
 			this.name = tokens[1];
 		}
 		if(tokens.length > 3){
-			this.crop_image_url = tokens[2+county];
-			this.north = Double.parseDouble(tokens[3+county]);
-			this.west = Double.parseDouble(tokens[4+county]);
-			this.south = Double.parseDouble(tokens[5+county]);
-			this.east = Double.parseDouble(tokens[6+county]);
-			this.rotation = Integer.parseInt(tokens[7+county]);
+			//this.crop_image_url = tokens[2+county];
+			this.north = Double.parseDouble(tokens[2+county]);
+			this.west = Double.parseDouble(tokens[3+county]);
+			this.south = Double.parseDouble(tokens[4+county]);
+			this.east = Double.parseDouble(tokens[5+county]);
+			this.rotation = Integer.parseInt(tokens[6+county]);
 		}
 		//Log.i("US_Region",this.name);
 	}

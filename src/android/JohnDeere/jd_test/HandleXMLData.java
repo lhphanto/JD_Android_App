@@ -4,9 +4,13 @@ import org.xml.sax.Attributes;
 import org.xml.sax.SAXException;
 import org.xml.sax.helpers.DefaultHandler;
 
+import android.util.Log;
+
 public class HandleXMLData extends DefaultHandler{
 
 	private FinalValue data = new FinalValue();
+	private boolean is_desc =false;
+	private boolean is_item =false;
 	
 	public String getInfo(){
 		return data.dataToOutput();
@@ -30,9 +34,11 @@ public class HandleXMLData extends DefaultHandler{
 			data.setCity(city);
 		}
 		else if (qName.equals("yweather:condition")){
-			String t = attributes.getValue("temp");
-			int temp = Integer.parseInt(t);
+			int temp = Integer.parseInt(attributes.getValue("temp"));
 			data.setTemp(temp);
+			int code = Integer.parseInt(attributes.getValue("code"));
+			data.setCode(code);
+			data.setDesc(attributes.getValue("text"));
 		}
 		else if (qName.equals("locality1")) {
 			String woeid = attributes.getValue("woeid");
@@ -41,7 +47,29 @@ public class HandleXMLData extends DefaultHandler{
 		else if (qName.equals("yweather:wind")) {
 			String wind = attributes.getValue("speed");
 			data.setWind(wind);
+		}		
+		else if (qName.equals("description")) {
+			is_desc = true;
 		}
+		else if (qName.equals("item")) {
+			is_item = true;			
+		}
+		
+	}
+	
+	public void endElement(String uri, String localName,
+			String qName) throws SAXException {
+	 
+		if (qName.equals("item")) {
+			is_item = false;			
+		}		
+		else if (qName.equals("description")) {
+			is_desc = false;			
+		}	 
+	}
+	
+	public void characters(char ch[], int start, int length) throws SAXException {
+		
 	}
 
 	
