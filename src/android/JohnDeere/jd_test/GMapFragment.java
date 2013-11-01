@@ -115,12 +115,14 @@ public class GMapFragment extends Fragment {
 	            TextView we_temp = (TextView) v.findViewById(R.id.we_temperature);
 	            TextView we_cond = (TextView) v.findViewById(R.id.we_cond);
 	            TextView we_temp_unit = (TextView) v.findViewById(R.id.we_temp_unit);
+	            TextView we_wind = (TextView) v.findViewById(R.id.we_wind);
 
 	            String[] tokens = marker.getTitle().split("\t");
 	            we_city.setText(tokens[0]);
 	            //we_temp.setText(Html.fromHtml(tokens[1]+"<sup>\u2109<sup>"));
 	            we_temp.setText(tokens[1]);
 	            we_temp_unit.setText(R.string.fahrenheit);
+	            we_wind.setText(tokens[2]);
 	            we_cond.setText(tokens[3]);
 	          
 	            Log.i(tag, "The token is "+tokens[4]);
